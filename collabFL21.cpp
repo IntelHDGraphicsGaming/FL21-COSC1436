@@ -21,6 +21,7 @@ string semester = "Fall 2021";
 
 void showMenu();
 void menu18Smiley(int);
+void menu4Carpenter();
 
 // ***************************************************************
 // END OF FUNCTION PROTOTYPE AREA
@@ -59,7 +60,8 @@ int main()
                 break;
             case 3:                 // Birge - call to function goes here
                 break;
-            case 4:                 // Carpenter - call to function goes here
+            case 4:		    // Carpenter - call to function goes here
+		menu4Carpenter()                
                 break;
             case 5:                 // Cervantes - call to function goes here
                 break;
@@ -155,6 +157,23 @@ void showMenu()
 //                   Program outputs the following:
 //                      Fibonacci Sequence (9 iterations): 0, 1, 1, 2, 3, 5, 8, 13, 21
 // *****************************************************************************************
+
+//****************************************************************************************
+// MENU ID:          4
+// FUNCTION:         menu4Carpenter
+// DESCRIPTION:      Asks the user for an integer, then outputs that integer as binary along with the memory address.
+// OUTPUT EXAMPLE:   User enters 102
+//                   Program outputs the following:
+//
+//                    This program outputs a Decimal value's memory location and binary value.
+//
+//                    Please enter your decimal value now:102
+//
+//                    The binary value is: 1100110
+//
+//                    The memory location of the decimal value is: 0x7ffc7332c640
+//
+//****************************************************************************************
 void menu18Smiley(int numberOfTimes)
 {
     int current = 0;
@@ -194,4 +213,32 @@ void menu18Smiley(int numberOfTimes)
 
     cout << endl;
     cout << endl;
+}
+
+void menu4Carpenter() {
+
+    int dNum, bNum[20], i = 0;
+
+    cout << "\nThis program outputs a Decimal value's memory location and binary value.\n\nPlease enter your decimal value now: ";
+
+    cin >> dNum;
+
+    int* memNum = &dNum;
+
+    while (dNum != 0)
+    {
+        bNum[i] = dNum % 2;
+        i++;
+        dNum = dNum / 2;
+    };
+
+    cout << "\nThe binary value is: ";
+
+    for (i = (i - 1); i >= 0; i--) {
+        cout << bNum[i];
+    };
+    cout << "\n\n";
+    cout << "The memory location of the decimal value is: " << memNum;
+    cout << "\n\n\n";
+    cin.clear();
 }
